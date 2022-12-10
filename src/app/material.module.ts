@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -33,6 +36,9 @@ export const MY_FORMATS = {
     MatInputModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,6 +47,9 @@ export const MY_FORMATS = {
     MatInputModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
   ],
   providers: [
     {
