@@ -6,11 +6,17 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { TrainningComponent } from './trainning/trainning.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
+import { AuthGuard } from './auth/auth.guard';
+
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'trainning', component: TrainningComponent },
+  {
+    path: 'trainning',
+    component: TrainningComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
