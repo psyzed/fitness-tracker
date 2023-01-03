@@ -19,6 +19,7 @@ import { MatDialogActions } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   DateAdapter,
   MAT_DATE_FORMATS,
@@ -56,6 +57,7 @@ export const MY_FORMATS = {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -76,6 +78,7 @@ export const MY_FORMATS = {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatSnackBarModule,
   ],
   providers: [
     {
