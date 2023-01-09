@@ -49,6 +49,8 @@ export class PastTrainningsComponent
   }
 
   ngOnDestroy(): void {
-    this.finishedExercisesSub.unsubscribe();
+    if (this.finishedExercisesSub) {
+      this.finishedExercisesSub.unsubscribe();
+    }
   }
 }

@@ -36,11 +36,22 @@ export class TrainningService {
             });
           })
         )
-        .subscribe((exercises: Exercise[]) => {
-          this.uiService.loadingStateChanged.next(false);
-          this.availableExercises = exercises;
-          this.exercisesChanged.next([...this.availableExercises]);
-        })
+        .subscribe(
+          (exercises: Exercise[]) => {
+            this.uiService.loadingStateChanged.next(false);
+            this.availableExercises = exercises;
+            this.exercisesChanged.next([...this.availableExercises]);
+          },
+          (error) => {
+            this.uiService.loadingStateChanged.next(false);
+            this.uiService.showSnackbar(
+              'Fetching Exercises Failed, Please Try Again Later.',
+              null,
+              3000
+            );
+            this.exercisesChanged.next(null);
+          }
+        )
     );
   }
 
