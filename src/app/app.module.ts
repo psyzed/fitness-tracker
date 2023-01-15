@@ -5,6 +5,8 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire/';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './app.reducer';
 
 import { environment } from '../environments/environment';
 
@@ -33,6 +35,7 @@ import { AuthModule } from './auth/auth.module';
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
     AngularFirestoreModule,
+    StoreModule.forRoot({ ui: appReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
