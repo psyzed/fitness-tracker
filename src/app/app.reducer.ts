@@ -1,22 +1,24 @@
-export interface State {
-  isLoading: boolean;
+import {
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector,
+} from '@ngrx/store';
+
+import * as fromUi from 'src/app/shared/store/ui.reducer';
+import * as fromAuth from 'src/app/auth/store/auth.reducer';
+
+export interface AppState {
+  ui: fromUi.State;
+  auth: fromAuth.State;
 }
 
-const initialState: State = {
-  isLoading: false,
+export const appReducers: ActionReducerMap<AppState> = {
+  ui: fromUi.uiReducer,
+  auth: fromAuth.authReducer,
 };
 
-export function appReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'START_LOADING':
-      return {
-        isLoading: true,
-      };
-    case 'STOP_LOADING':
-      return {
-        isLoading: false,
-      };
-    default:
-      return state;
-  }
-}
+export const getUiState = createFeatureSelector<fromUi.State>('ui');
+export const getIsLoading = createSelector(getUiState, fromUi.getIsLoading);
+
+export const getAuthState = createFeatureSelector<fromAuth.State>('auth');
+export const getIsAuth = createSelector(getAuthState, fromAuth.getIsAuth);

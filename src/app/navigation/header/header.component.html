@@ -7,16 +7,16 @@
   <div><a routerLink="/">NG Fitness</a></div>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-      <li *ngIf="!isAuth" class="navigation-items">
+      <li *ngIf="!(isAuth$ | async)" class="navigation-items">
         <a routerLink="/signup">Signup</a>
       </li>
-      <li *ngIf="!isAuth" class="navigation-items">
+      <li *ngIf="!(isAuth$ | async)" class="navigation-items">
         <a routerLink="/login">Login</a>
       </li>
-      <li *ngIf="isAuth" class="navigation-items">
+      <li *ngIf="isAuth$ | async" class="navigation-items">
         <a routerLink="/trainning">Training</a>
       </li>
-      <li *ngIf="isAuth" class="navigation-items">
+      <li *ngIf="isAuth$ | async" class="navigation-items">
         <a style="cursor: pointer" (click)="onLogout()">Logout</a>
       </li>
     </ul>
